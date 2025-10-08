@@ -11,7 +11,7 @@ UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # === Load trained model and class names ===
-MODEL_PATH = "egg_model.keras"   # <-- updated
+MODEL_PATH = "egg_model.keras"
 CLASS_FILE = "class_names.txt"
 
 print("🔄 Loading model...")
@@ -60,4 +60,6 @@ def infer():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # ✅ Important: Use Render’s dynamic port
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
