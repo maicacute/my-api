@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import os
 from datetime import datetime
 import numpy as np
+import sys
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
@@ -60,6 +61,5 @@ def infer():
 
 
 if __name__ == "__main__":
-    # ✅ Important: Use Render’s dynamic port
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    print("🔍 Python version:", sys.version)
+    app.run(host="0.0.0.0", port=5000, debug=True)
